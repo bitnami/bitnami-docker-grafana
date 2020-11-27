@@ -7,7 +7,7 @@ Grafana is an open source, feature rich metrics dashboard and graph editor for G
 ## TL;DR
 
 ```console
-$ docker run --name grafana bitnami/grafana:latest
+$ docker run -p 3000:3000 --name grafana bitnami/grafana:latest
 ```
 
 ## Why use Bitnami Images?
@@ -79,7 +79,7 @@ $ docker network create grafana-network --driver bridge
 Use the `--network <NETWORK>` argument to the `docker run` command to attach the container to the `grafana-network` network.
 
 ```console
-$ docker run --name grafana-node1 --network grafana-network bitnami/grafana:latest
+$ docker run -p 3000:3000 --name grafana-node1 --network grafana-network bitnami/grafana:latest
 ```
 
 #### Step 3: Run another containers
@@ -222,7 +222,7 @@ $ docker rm -v grafana
 Re-create your container from the new image, [restoring your backup](#restoring-a-backup) if necessary.
 
 ```console
-$ docker run --name grafana bitnami/grafana:latest
+$ docker run -p 3000:3000 --name grafana bitnami/grafana:latest
 ```
 
 ## Notable Changes
