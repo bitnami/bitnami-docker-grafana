@@ -10,6 +10,8 @@ Grafana is an open source, feature rich metrics dashboard and graph editor for G
 $ docker run -p 3000:3000 --name grafana bitnami/grafana:latest
 ```
 
+Head to http://localhost:3000/ and log in with the default username **admin** and the password **admin**. You will be asked to set a new password, afterwards.
+
 ## Why use Bitnami Images?
 
 * Bitnami closely tracks upstream source changes and promptly publishes new versions of this image using our automated systems.
