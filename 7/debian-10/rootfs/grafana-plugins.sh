@@ -45,8 +45,7 @@ for plugin in "${grafana_plugin_list[@]}"; do
   "${grafana_install_plugin_command[@]}" "${grafana_install_plugin_args[@]}" "${plugin}"
 done
 
-chmod g+rwX /opt/bitnami/grafana/data/plugins
-chown -R 1001:1001 /opt/bitnami/grafana/data/plugins
+chmod a+rwX /opt/bitnami/grafana/data/plugins
 
 # The Grafana Helm chart mounts the data directory at "/opt/bitnami/grafana/data"
 # Therefore, all the plugins installed when building the image will be lost
