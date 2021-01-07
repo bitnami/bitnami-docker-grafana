@@ -16,10 +16,7 @@ RUN wget -nc -P /tmp/bitnami/pkg/cache/ https://downloads.bitnami.com/files/stac
 RUN apt-get update && apt-get upgrade -y && \
     rm -r /var/lib/apt/lists /var/cache/apt/archives
 RUN chmod g+rwX /opt/bitnami
-# Introduced a new USER Env variable
-ARG BITNAMI_UID=1001
-
-RUN mkdir -p /opt/bitnami/grafana/data/ /opt/bitnami/grafana/logs/ && chown "${BITNAMI_UID}:root" /opt/bitnami/grafana/data/ /opt/bitnami/grafana/logs/
+RUN mkdir -p /opt/bitnami/grafana/data/ /opt/bitnami/grafana/logs/ && chown -R 1001:root /opt/bitnami/grafana/data/ /opt/bitnami/grafana/logs/ && chmod g+rwX /opt/bitnami/grafana/data/ /opt/bitnami/grafana/logs/
 RUN mv /opt/bitnami/grafana/conf/sample.ini /opt/bitnami/grafana/conf/grafana.ini
 
 COPY rootfs /
@@ -31,5 +28,5 @@ ENV BITNAMI_APP_NAME="grafana" \
 EXPOSE 3000
 
 WORKDIR /opt/bitnami/grafana
-USER "${BITNAMI_UID}"
+USER 1001
 ENTRYPOINT [ "/run.sh" ]
